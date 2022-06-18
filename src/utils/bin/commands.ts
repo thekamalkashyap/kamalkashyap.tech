@@ -2,6 +2,7 @@
 
 import * as bin from './index';
 import config from '../../../config.json';
+import avatar from '../../../public/insta.png';
 
 // Help
 export const help = async (args: string[]): Promise<string> => {
@@ -16,9 +17,9 @@ export const help = async (args: string[]): Promise<string> => {
   }
   return `Welcome! Here are all the available commands:
 \n${c}\n
+Type 'neofetch' to display summary.\n
 [tab]: trigger completion.
-[ctrl+l]/clear: clear terminal.\n
-Type 'sumfetch' to display summary.
+[ctrl+l]/clear: clear terminal.
 `;
 };
 
@@ -47,10 +48,11 @@ export const resume = async (args: string[]): Promise<string> => {
 export const donate = async (args: string[]): Promise<string> => {
   return `thank you for your interest. 
 here are the ways you can support my work:
-- <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.donate_urls.paypal}" target="_blank">paypal</a></u>
-- <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.donate_urls.patreon}" target="_blank">patreon</a></u>
+# bitcoin address
+- ${config.donate_urls.bitcoin}
 `;
 };
+// - <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.donate_urls.patreon}" target="_blank">patreon</a></u>
 
 // Contact
 export const email = async (args: string[]): Promise<string> => {
@@ -64,10 +66,10 @@ export const github = async (args: string[]): Promise<string> => {
   return 'Opening github...';
 };
 
-export const linkedin = async (args: string[]): Promise<string> => {
-  window.open(`https://www.linkedin.com/in/${config.social.linkedin}/`);
+export const instagram = async (args: string[]): Promise<string> => {
+  window.open(`https://www.instagram.com/${config.social.instagram}/`);
 
-  return 'Opening linkedin...';
+  return 'Opening instagram...';
 };
 
 // Search
@@ -81,11 +83,6 @@ export const duckduckgo = async (args: string[]): Promise<string> => {
   return `Searching duckduckgo for ${args.join(' ')}...`;
 };
 
-export const bing = async (args: string[]): Promise<string> => {
-  window.open(`https://bing.com/search?q=${args.join(' ')}`);
-  return `Wow, really? You are using bing for ${args.join(' ')}?`;
-};
-
 export const reddit = async (args: string[]): Promise<string> => {
   window.open(`https://www.reddit.com/search/?q=${args.join(' ')}`);
   return `Searching reddit for ${args.join(' ')}...`;
@@ -97,15 +94,16 @@ export const echo = async (args: string[]): Promise<string> => {
 };
 
 export const whoami = async (args: string[]): Promise<string> => {
-  return `${config.ps1_username}`;
+  return `how come i know,lol!\nbut currently you are logged in as "${config.ps1_username}"`;
 };
 
 export const ls = async (args: string[]): Promise<string> => {
-  return `a
-bunch
+  return `bunch
 of
 fake
-directories`;
+directories
+and
+files`;
 };
 
 export const cd = async (args: string[]): Promise<string> => {
@@ -114,44 +112,52 @@ if you want to help, you can type 'donate'.`;
 };
 
 export const date = async (args: string[]): Promise<string> => {
-  return new Date().toString();
+  return `why don't, tell me where we are going.\nopps!, are you asking about date today\nit's ${new Date().toString()}`;
 };
 
 export const vi = async (args: string[]): Promise<string> => {
-  return `woah, you still use 'vi'? just try 'vim'.`;
+  return `woah!, you still use 'vi'? just try 'vim'.`;
 };
 
 export const vim = async (args: string[]): Promise<string> => {
-  return `'vim' is so outdated. how about 'nvim'?`;
+  return `nice choice, but emacs is better.`;
 };
 
-export const nvim = async (args: string[]): Promise<string> => {
-  return `'nvim'? too fancy. why not 'emacs'?`;
+export const touch = async (args: string[]): Promise<string> => {
+  return `touch what? bro i don't have more space in my server.`;
 };
 
 export const emacs = async (args?: string[]): Promise<string> => {
-  return `you know what? just use vscode.`;
+  return `their is too much complications in using emacs, why don't you try codium.`;
+};
+
+export const codium = async (args?: string[]): Promise<string> => {
+  return `why should i use my resources?\njust install it in your local machine and use it.`;
 };
 
 export const sudo = async (args?: string[]): Promise<string> => {
-  window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank'); // ...I'm sorry
+  // window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank'); // ...I'm sorry
   return `Permission denied: with little power comes... no responsibility? `;
 };
 
 // Banner
 export const banner = (args?: string[]): string => {
   return `
-█████        ███                       ███████████                                   
-░░███        ░░░                       ░█░░░███░░░█                                   
- ░███        ████  █████ █████  ██████ ░   ░███  ░   ██████  ████████  █████████████  
- ░███       ░░███ ░░███ ░░███  ███░░███    ░███     ███░░███░░███░░███░░███░░███░░███ 
- ░███        ░███  ░███  ░███ ░███████     ░███    ░███████  ░███ ░░░  ░███ ░███ ░███ 
- ░███      █ ░███  ░░███ ███  ░███░░░      ░███    ░███░░░   ░███      ░███ ░███ ░███ 
- ███████████ █████  ░░█████   ░░██████     █████   ░░██████  █████     █████░███ █████
-░░░░░░░░░░░ ░░░░░    ░░░░░     ░░░░░░     ░░░░░     ░░░░░░  ░░░░░     ░░░░░ ░░░ ░░░░░ 
+
+<div class="flex flex-row justify-center items-center">
+<img src="/insta.png" style="width:150px; height:150px; margin-right:1rem; border-radius:10px; " alt="avatar"></img>
+<span>
+██╗░░██╗░█████╗░███╗░░░███╗░█████╗░██╗░░░░░
+██║░██╔╝██╔══██╗████╗░████║██╔══██╗██║░░░░░
+█████═╝░███████║██╔████╔██║███████║██║░░░░░
+██╔═██╗░██╔══██║██║╚██╔╝██║██╔══██║██║░░░░░
+██║░╚██╗██║░░██║██║░╚═╝░██║██║░░██║███████╗
+╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░░░░╚═╝╚═╝░░╚═╝╚══════╝
+</span>
+</div>
 
 Type 'help' to see the list of available commands.
-Type 'sumfetch' to display summary.
+Type 'neofetch' to display summary.
 Type 'repo' or click <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.repo}" target="_blank">here</a></u> for the Github repository.
 `;
 };

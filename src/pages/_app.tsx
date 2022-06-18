@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/global.css';
 import Head from 'next/head';
 
 const App = ({ Component, pageProps }) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
 
-  const onClickAnywhere = () => {
-    inputRef.current.focus();
-  };
+  // const onClickAnywhere = () => {
+  //   inputRef.current.focus();
+  // };
 
   return (
     <>
@@ -22,9 +22,9 @@ const App = ({ Component, pageProps }) => {
 
       <div
         className="text-light-foreground dark:text-dark-foreground min-w-max text-xs md:min-w-full md:text-base"
-        onClick={onClickAnywhere}
+        // onClick={onClickAnywhere}
       >
-        <main className="bg-light-background dark:bg-dark-background w-full h-full p-2">
+        <main className="bg-light-background dark:bg-dark-background w-full h-full">
           <Component {...pageProps} inputRef={inputRef} />
         </main>
       </div>
