@@ -5,10 +5,6 @@ import Head from 'next/head';
 const App = ({ Component, pageProps }) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
 
-  // const onClickAnywhere = () => {
-  //   inputRef.current.focus();
-  // };
-
   return (
     <>
       <Head>
@@ -20,10 +16,7 @@ const App = ({ Component, pageProps }) => {
         />
       </Head>
 
-      <div
-        className="text-light-foreground dark:text-dark-foreground min-w-max text-xs md:min-w-full md:text-base"
-        // onClick={onClickAnywhere}
-      >
+      <div className="text-light-foreground dark:text-dark-foreground min-w-max text-xs md:min-w-full md:text-base">
         <main className="bg-light-background dark:bg-dark-background w-full h-full">
           <Component {...pageProps} inputRef={inputRef} />
         </main>

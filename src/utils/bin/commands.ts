@@ -2,11 +2,11 @@
 
 import * as bin from './index';
 import config from '../../../config.json';
-import avatar from '../../../public/insta.png';
+import Router from 'next/router';
 
 // Help
 export const help = async (args: string[]): Promise<string> => {
-  const commands = Object.keys(bin).sort().join(', ');
+  // const commands = Object.keys(bin).sort().join(', ');
   var c = '';
   for (let i = 1; i <= Object.keys(bin).sort().length; i++) {
     if (i % 7 === 0) {
@@ -40,7 +40,8 @@ More about me:
 };
 
 export const resume = async (args: string[]): Promise<string> => {
-  window.open(`${config.resume_url}`);
+  Router.replace('/resume');
+  // window.open(`${config.resume_url}`);
   return 'Opening resume...';
 };
 
@@ -143,18 +144,12 @@ export const sudo = async (args?: string[]): Promise<string> => {
 // Banner
 export const banner = (args?: string[]): string => {
   return `
-
-<div class="flex flex-row justify-center items-center">
-<img src="/insta.png" style="width:150px; height:150px; margin-right:1rem; border-radius:10px; " alt="avatar"></img>
-<span>
 ██╗░░██╗░█████╗░███╗░░░███╗░█████╗░██╗░░░░░
 ██║░██╔╝██╔══██╗████╗░████║██╔══██╗██║░░░░░
 █████═╝░███████║██╔████╔██║███████║██║░░░░░
 ██╔═██╗░██╔══██║██║╚██╔╝██║██╔══██║██║░░░░░
 ██║░╚██╗██║░░██║██║░╚═╝░██║██║░░██║███████╗
 ╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░░░░╚═╝╚═╝░░╚═╝╚══════╝
-</span>
-</div>
 
 Type 'help' to see the list of available commands.
 Type 'neofetch' to display summary.
