@@ -1,0 +1,111 @@
+:root {
+  --headerHeight:3rem;
+}
+.bg_blur {
+  filter: blur(2px);
+}
+header {
+  position: fixed;
+  background-color: #a9b8b323;
+  inset: 0 0;
+  height: 3rem;
+  z-index: 15;
+}
+
+#author {
+  position: inherit;
+  top: 0.7rem ;
+  right: 1rem;
+  font-size: 3vw;
+  transition: all 250ms ease;
+
+}
+#author:hover {
+  opacity: 0.8;
+  transform: scale(1.2);
+  transition: all 250ms ease;
+}
+#hamBurger {
+  position: inherit;
+  top: 0.5rem;
+  left: 1rem;
+  height: 30px;
+  width: 36px;
+  background-color: #a9b8b323;
+  border-radius: 10%;
+  transition: all 250ms ease-out;
+}
+
+#hamBurger:before,
+#hamBurger:after {
+  content: ' ';
+  height: 2px;
+  width: 24px;
+  position: absolute;
+  background: white;
+  transition: all 250ms ease-out;
+}
+#hamBurger:hover {
+  opacity: 0.6;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  transition: all 250ms ease-out;
+}
+#hamBurger:before {
+  transform: translateY(-8px) translateX(-12px);
+}
+
+#hamBurger:after {
+  transform: translateY(6px) translateX(-12px);
+}
+
+#hamBurger.active:before {
+  transform: rotate(45deg) translateY(8px) translateX(-10px);
+}
+
+#hamBurger.active:after {
+  transform: rotate(-45deg) translateY(-10px) translateX(-8px);
+}
+
+nav#navLinks {
+  position: fixed;
+  visibility: hidden;
+  top: 3rem;
+  width: 100%;
+  height: calc(100vh - 3rem);
+  padding: 2rem;
+  opacity: 0;
+  transition: all 0.7s ease;
+}
+
+nav#navLinks.active {
+  visibility: visible;
+  z-index: 10;
+  opacity: 1;
+  transition: all 0.7s ease;
+}
+nav#navLinks ul li {
+  width: 0;
+  border-bottom: 2px solid rgb(163, 163, 163);
+  transition: all 1s ease;
+}
+nav#navLinks.active ul li {
+  width: 100%;
+  transition: all 1s ease;
+}
+nav#navLinks ul li:last-child {
+  border: none;
+}
+nav#navLinks ul li a {
+  font-size: 1.2rem;
+  color: white;
+  padding: 1.5em 0; /* also change nav#navLinks ul li a:hover padding */
+  display: block;
+  font-weight: 500;
+  transition: all 0.5s ease;
+}
+nav#navLinks ul li a:hover {
+  opacity: 0.8;
+  transition: all 0.5s ease;
+  padding: 1.5em; /* also change nav#navLinks ul li a padding */
+}

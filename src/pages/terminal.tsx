@@ -1,6 +1,4 @@
-import Head from 'next/head';
 import React from 'react';
-import config from '../../config.json';
 import { Input } from '../components/input';
 import { useHistory } from '../components/history/hook';
 import { History } from '../components/history/History';
@@ -41,27 +39,25 @@ const Terminal: React.FC<TerminalPageProps> = ({ inputRef }) => {
 
   return (
     <>
-      <Head>
-        <title>{config.title}</title>
-      </Head>
+      <main
+        ref={containerRef}
+        className="min-h-[100vh] p-6 border overflow-scroll"
+        onClick={onClickAnywhere}
+      >
+        <History history={history} />
 
-      <div className="p-6 overflow-hidden h-full" onClick={onClickAnywhere}>
-        <div ref={containerRef} className="overflow-y-auto h-full">
-          <History history={history} />
-
-          <Input
-            inputRef={inputRef}
-            containerRef={containerRef}
-            command={command}
-            history={history}
-            lastCommandIndex={lastCommandIndex}
-            setCommand={setCommand}
-            setHistory={setHistory}
-            setLastCommandIndex={setLastCommandIndex}
-            clearHistory={clearHistory}
-          />
-        </div>
-      </div>
+        <Input
+          inputRef={inputRef}
+          containerRef={containerRef}
+          command={command}
+          history={history}
+          lastCommandIndex={lastCommandIndex}
+          setCommand={setCommand}
+          setHistory={setHistory}
+          setLastCommandIndex={setLastCommandIndex}
+          clearHistory={clearHistory}
+        />
+      </main>
     </>
   );
 };
