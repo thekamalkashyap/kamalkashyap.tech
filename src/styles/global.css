@@ -5,6 +5,12 @@
 * {
   font-family: monospace;
   text-rendering: optimizeLegibility;
+  /* outline: 2px solid !important; */
+  /* background: rgb(0 100 0 / 0.1) !important; */
+}
+
+:root {
+  --navbarHeight: 3rem;
 }
 
 html,
@@ -13,17 +19,19 @@ body {
   margin: 0;
   box-sizing: border-box;
   background: #2e3440;
-  max-height: 100%;
-  max-width: 100%;
 }
 
-main {
-  height: 100vh;
+main#home {
+  z-index: 15;
+  text-align: center;
+  position: fixed;
+  top: var(--navbarHeight);
+  height: calc(100vh - var(--navbarHeight));
+  width: 100vw;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
 }
-main .pageSlides {
-  padding: 1rem;
+main#home .pageSlides {
   height: 100%;
   width: 100%;
   display: flex;
@@ -48,4 +56,8 @@ main .pageSlides {
   flex-direction: column;
   flex: none;
   scroll-snap-align: start;
+}
+
+main#home .pageSlides#footer{
+  justify-content: space-between;
 }

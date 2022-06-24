@@ -6,11 +6,11 @@ export default function Navbar() {
       <header>
         <button
           id="hamBurger"
+          className="md:hidden"
           onClick={(e) => {
             document.getElementById('hamBurger').classList.toggle('active');
             document.getElementById('navLinks').classList.toggle('active');
             document.querySelector('main').classList.toggle('bg_blur');
-            document.body.classList.toggle('overflow-hidden');
             e.preventDefault();
           }}
         ></button>
@@ -21,7 +21,7 @@ export default function Navbar() {
       <nav id="navLinks" role="navigation">
         <ul>
           {config.navLinks.map((e) => (
-            <li key={e.href}>
+            <li className="md:p-2 md:text-lg lg:text-xl" key={e.href}>
               <Link href={e.href}>{e.title}</Link>
             </li>
           ))}

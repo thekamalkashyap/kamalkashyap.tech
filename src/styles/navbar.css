@@ -1,24 +1,27 @@
 :root {
-  --headerHeight:3rem;
+  --navbarHeight: 3rem;
 }
 .bg_blur {
   filter: blur(2px);
 }
 header {
   position: fixed;
-  background-color: #a9b8b323;
+  background-color: #3f4650;
+  border-bottom: 1px solid #758497;
+  z-index: 20;
   inset: 0 0;
-  height: 3rem;
-  z-index: 15;
+  height: var(--navbarHeight);
 }
-
 #author {
-  position: inherit;
-  top: 0.7rem ;
+  position: fixed;
+  display: flex;
+  justify-content:flex-end;
+  align-items: center;
+  height: var(--navbarHeight);
+  width: 60%;
   right: 1rem;
-  font-size: 3vw;
+  z-index: 20;
   transition: all 250ms ease;
-
 }
 #author:hover {
   opacity: 0.8;
@@ -26,7 +29,8 @@ header {
   transition: all 250ms ease;
 }
 #hamBurger {
-  position: inherit;
+  position: fixed;
+  z-index: 20;
   top: 0.5rem;
   left: 1rem;
   height: 30px;
@@ -41,7 +45,7 @@ header {
   content: ' ';
   height: 2px;
   width: 24px;
-  position: absolute;
+  position: fixed;
   background: white;
   transition: all 250ms ease-out;
 }
@@ -68,19 +72,23 @@ header {
 }
 
 nav#navLinks {
-  position: fixed;
+  z-index: -10;
+  overflow: hidden;
   visibility: hidden;
-  top: 3rem;
   width: 100%;
-  height: calc(100vh - 3rem);
-  padding: 2rem;
+  position: absolute;
+  top: var(--navbarHeight);
+  height: calc(100% - var(--navbarHeight));
+  padding: 0 2rem ;
   opacity: 0;
   transition: all 0.7s ease;
 }
 
 nav#navLinks.active {
   visibility: visible;
-  z-index: 10;
+  height: calc(100% - var(--navbarHeight));
+  overflow-y: scroll;
+  z-index: 30;
   opacity: 1;
   transition: all 0.7s ease;
 }
@@ -97,15 +105,57 @@ nav#navLinks ul li:last-child {
   border: none;
 }
 nav#navLinks ul li a {
-  font-size: 1.2rem;
   color: white;
   padding: 1.5em 0; /* also change nav#navLinks ul li a:hover padding */
   display: block;
-  font-weight: 500;
   transition: all 0.5s ease;
 }
 nav#navLinks ul li a:hover {
   opacity: 0.8;
   transition: all 0.5s ease;
   padding: 1.5em; /* also change nav#navLinks ul li a padding */
+}
+
+@media (min-width: 768px) {
+  nav#navLinks {
+    z-index: 20;
+    visibility: visible;
+    width: 60%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-left: 1rem;
+    opacity: 1;
+    transition: all 0.7s ease;
+  }
+  nav#navLinks ul {
+    position: fixed;
+    height: var(--navbarHeight);
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav#navLinks ul li {
+    width: auto;
+    border-bottom: none;
+    transition: all 1s ease;
+  }
+  nav#navLinks ul li a {
+    color: white;
+    text-align: center;
+    padding: 0;
+    opacity: 0.6;
+    display: inherit;
+    transition: all 0.5s ease;
+  }
+  nav#navLinks ul li a:hover {
+    opacity: 1;
+    transition: all 0.5s ease;
+    padding: 0;
+  }
+  #author{
+    width: 35%;
+  }
 }

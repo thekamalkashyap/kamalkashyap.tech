@@ -41,7 +41,7 @@ const Terminal: React.FC<TerminalPageProps> = ({ inputRef }) => {
     <>
       <main
         ref={containerRef}
-        className="min-h-[100vh] p-6 border overflow-scroll"
+        className="min-h-[100vh] p-6 overflow-scroll text-[0.5rem] sm:text-xs lg:text-sm xl:text-base"
         onClick={onClickAnywhere}
       >
         <History history={history} />

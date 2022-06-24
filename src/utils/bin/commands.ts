@@ -39,10 +39,17 @@ More about me:
 'readme' - my github readme.`;
 };
 
+// Resume
 export const resume = async (args: string[]): Promise<string> => {
   Router.replace('/resume');
   // window.open(`${config.resume_url}`);
   return 'Opening resume...';
+};
+
+export const exit = async (args: string[]): Promise<string> => {
+  Router.replace('/');
+  // window.open(`${config.resume_url}`);
+  return 'exiting ...';
 };
 
 // Donate

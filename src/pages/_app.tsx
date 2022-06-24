@@ -14,7 +14,7 @@ const App = ({ Component, pageProps }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
-      <div className="bg-dark-background text-dark-foreground text-xs md:text-base">
+      <div className="bg-dark-background text-dark-foreground text-lg sm:text-xl  md:text-2xl lg:text-3xl xl:text-4xl ">
         <Component {...pageProps} inputRef={inputRef} />
       </div>
     </>
