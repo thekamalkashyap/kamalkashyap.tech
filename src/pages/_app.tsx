@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/global.css';
 import '../styles/navbar.css';
 import Head from 'next/head';
@@ -6,6 +6,26 @@ import config from '../../config.json';
 
 const App = ({ Component, pageProps }) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
+  let [visitorName, setVisitorName] = useState('');
+  useEffect(() => {
+    const askName = 'What is your name?';
+    let visitor: string;
+
+    if (!window.sessionStorage) {
+      window.prompt(askName);
+    }
+    visitor = window.sessionStorage.getItem('visitorName');
+
+    if (!visitor) {
+      visitor = window.prompt(askName);
+      window.sessionStorage.setItem('visitorName', visitor);
+    }
+
+    if (['', 'undefined', 'null'].includes(visitor)) {
+      visitor = config.ps1_username;
+    }
+    setVisitorName(visitor);
+  }, [visitorName]);
 
   return (
     <>
@@ -14,8 +34,12 @@ const App = ({ Component, pageProps }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
-      <div className="bg-dark-background text-dark-foreground text-lg sm:text-xl  md:text-2xl lg:text-3xl xl:text-4xl ">
-        <Component {...pageProps} inputRef={inputRef} />
+      <div>
+        <Component
+          {...pageProps}
+          visitorName={visitorName}
+          inputRef={inputRef}
+        />
       </div>
     </>
   );

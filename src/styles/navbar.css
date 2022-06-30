@@ -1,38 +1,22 @@
-:root {
-  --navbarHeight: 3rem;
-}
 .bg_blur {
   filter: blur(2px);
 }
-header {
+
+header{
   position: fixed;
-  background-color: #3f4650;
-  border-bottom: 1px solid #758497;
-  z-index: 20;
-  inset: 0 0;
+  top: 0;
+  left: 0;
   height: var(--navbarHeight);
+  width: 100%;
+  z-index: 10;
+  background-color: black;
 }
-#author {
-  position: fixed;
-  display: flex;
-  justify-content:flex-end;
-  align-items: center;
-  height: var(--navbarHeight);
-  width: 60%;
-  right: 1rem;
-  z-index: 20;
-  transition: all 250ms ease;
-}
-#author:hover {
-  opacity: 0.8;
-  transform: scale(1.2);
-  transition: all 250ms ease;
-}
+
 #hamBurger {
   position: fixed;
-  z-index: 20;
-  top: 0.5rem;
-  left: 1rem;
+  z-index: 10;
+  top: 0.5em;
+  left: 1em;
   height: 30px;
   width: 36px;
   background-color: #a9b8b323;
@@ -75,26 +59,27 @@ nav#navLinks {
   z-index: -10;
   overflow: hidden;
   visibility: hidden;
+  opacity: 0;
   width: 100%;
   position: absolute;
   top: var(--navbarHeight);
-  height: calc(100% - var(--navbarHeight));
+  min-height: calc(100% - var(--navbarHeight));
   padding: 0 2rem ;
-  opacity: 0;
   transition: all 0.7s ease;
 }
 
 nav#navLinks.active {
+  z-index: 5;
   visibility: visible;
-  height: calc(100% - var(--navbarHeight));
-  overflow-y: scroll;
-  z-index: 30;
+  font-size: 20px;
   opacity: 1;
+  overflow-y: auto;
   transition: all 0.7s ease;
 }
 nav#navLinks ul li {
   width: 0;
-  border-bottom: 2px solid rgb(163, 163, 163);
+  color: white;
+  border-bottom: 2px solid rgb(122, 122, 122);
   transition: all 1s ease;
 }
 nav#navLinks.active ul li {
@@ -105,7 +90,6 @@ nav#navLinks ul li:last-child {
   border: none;
 }
 nav#navLinks ul li a {
-  color: white;
   padding: 1.5em 0; /* also change nav#navLinks ul li a:hover padding */
   display: block;
   transition: all 0.5s ease;
@@ -118,7 +102,7 @@ nav#navLinks ul li a:hover {
 
 @media (min-width: 768px) {
   nav#navLinks {
-    z-index: 20;
+    z-index: 10;
     visibility: visible;
     width: 60%;
     position: fixed;
@@ -143,19 +127,14 @@ nav#navLinks ul li a:hover {
     transition: all 1s ease;
   }
   nav#navLinks ul li a {
-    color: white;
     text-align: center;
     padding: 0;
     opacity: 0.6;
-    display: inherit;
     transition: all 0.5s ease;
   }
   nav#navLinks ul li a:hover {
     opacity: 1;
-    transition: all 0.5s ease;
     padding: 0;
-  }
-  #author{
-    width: 35%;
+    transition: all 0.5s ease;
   }
 }

@@ -5,6 +5,9 @@
 * {
   font-family: monospace;
   text-rendering: optimizeLegibility;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   /* outline: 2px solid !important; */
   /* background: rgb(0 100 0 / 0.1) !important; */
 }
@@ -13,17 +16,8 @@
   --navbarHeight: 3rem;
 }
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  background: #2e3440;
-}
 
 main#home {
-  z-index: 15;
-  text-align: center;
   position: fixed;
   top: var(--navbarHeight);
   height: calc(100vh - var(--navbarHeight));
@@ -34,11 +28,7 @@ main#home {
 main#home .pageSlides {
   height: 100%;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 }
 .carousel  {
   height: 100%;
@@ -50,14 +40,137 @@ main#home .pageSlides {
 .carousel .carouselSlides{
   height: 100%;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   flex: none;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 }
 
-main#home .pageSlides#footer{
-  justify-content: space-between;
+.terminal {
+  background-color: #1d1d1d;
+  box-shadow: 0 2px 10px #3e3e3e;
+  width: 80%;
+  height: 80%;
+}
+
+/* 
+----------
+impossible checkbox
+----------
+*/
+
+#darkLight{
+  color: white;
+  z-index: 10;
+  position: fixed;
+  font-size: 18px;
+  top: 0.4em;
+  right: calc(5vw + 3em);
+}
+
+.switch-container {
+  position: fixed;
+  z-index: 10;
+  top: 0.7rem;
+  right: 5vw;
+  width: 40px;
+  height: 20px;
+  border-radius: 20px;
+  background: rgb(73, 73, 73);
+  box-shadow: 0 2px 4px inset rgba(0, 0, 0, 0.671);
+  transition: all 0.4s ease-out;
+}
+.switch-container .switch-button {
+  position: fixed;
+  z-index: 10;
+  top: calc(0.7rem + 2px);
+  right: calc(5vw + 22px);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  transition: all 0.4s ease-out;
+}
+
+.switch-container.flipped .switch-button {
+  background-color: #111111;
+  right: calc(5vw + 2px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  transition: all 0.4s ease-out;
+
+}
+.switch-container.ready .switch-button {
+  cursor: pointer;
+}
+
+.animation-container {
+  position: fixed;
+  z-index: 15;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  pointer-events: none;
+  overflow: hidden;
+  transition: all 0.4s ease-out;
+
+}
+
+.reach-hand-right {
+  position: fixed;
+  z-index: 15;
+  top: 0.7rem;
+  right: -5.5vw;
+  height: 23px;
+  width: 5.5vw;
+  background: rgb(54, 26, 9);
+  border-top-left-radius: 13px;
+  border-bottom-left-radius: 13px;
+  transform-origin: 200px 50%;
+  transition: all 0.4s ease-out;
+}
+.reach-hand-right.reach {
+  animation: anim-arm-reach-right 1s;
+}
+.reach-hand-right.reachfar {
+  animation: anim-arm-reach-right-far 2s;
+}
+
+@keyframes anim-arm-reach-right {
+  from {
+    right: -5.5vw;
+  }
+  60% {
+    right: 0;
+  }
+  80% {
+    right: 0;
+  }
+  100% {
+    right: -5.5vw;
+  }
+}
+@keyframes anim-arm-reach-right-far {
+  from {
+    right: -5.5vw;
+  }
+  20% {
+    right: -3vw;
+    transform: rotate(10deg);
+  }
+  40% {
+    right: -1.7vw;
+    transform: rotate(-10deg);
+  }
+  60% {
+    right: -0.8vw;
+    transform: rotate(5deg);
+  }
+  70% {
+    right: 0;
+    transform: rotate(0);
+  }
+  100% {
+    right: -5.5vw;
+  }
 }

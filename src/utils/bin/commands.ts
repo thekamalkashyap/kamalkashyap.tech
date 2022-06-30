@@ -42,13 +42,11 @@ More about me:
 // Resume
 export const resume = async (args: string[]): Promise<string> => {
   Router.replace('/resume');
-  // window.open(`${config.resume_url}`);
   return 'Opening resume...';
 };
 
 export const exit = async (args: string[]): Promise<string> => {
-  Router.replace('/');
-  // window.open(`${config.resume_url}`);
+  Router.back();
   return 'exiting ...';
 };
 
@@ -102,7 +100,11 @@ export const echo = async (args: string[]): Promise<string> => {
 };
 
 export const whoami = async (args: string[]): Promise<string> => {
-  return `how come i know,lol!\nbut currently you are logged in as "${config.ps1_username}"`;
+  let visitor = window.sessionStorage.getItem('visitorName');
+  if (['', 'undefined', 'null'].includes(visitor)) {
+    visitor = config.ps1_username;
+  }
+  return `${visitor}`;
 };
 
 export const ls = async (args: string[]): Promise<string> => {

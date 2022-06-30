@@ -88,10 +88,10 @@ export const Input = ({
         ref={inputRef}
         id="prompt"
         type="text"
-        className={`bg-light-background dark:bg-dark-background focus:outline-none flex-grow ${
+        className={` bg-black focus:outline-none flex-grow ${
           commandExists(command) || command === ''
-            ? 'text-dark-green'
-            : 'text-dark-red'
+            ? 'text-green-400'
+            : 'text-red-400'
         }`}
         value={command}
         onChange={onChange}

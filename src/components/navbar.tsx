@@ -14,9 +14,6 @@ export default function Navbar() {
             e.preventDefault();
           }}
         ></button>
-        <span id="author">
-          <Link href="/">{config.name}</Link>
-        </span>
       </header>
       <nav id="navLinks" role="navigation">
         <ul>
