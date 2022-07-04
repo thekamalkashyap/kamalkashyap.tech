@@ -5,9 +5,7 @@
 * {
   font-family: monospace;
   text-rendering: optimizeLegibility;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+  scroll-behavior: smooth;
   /* outline: 2px solid !important; */
   /* background: rgb(0 100 0 / 0.1) !important; */
 }
@@ -17,38 +15,15 @@
 }
 
 
-main#home {
-  position: fixed;
-  top: var(--navbarHeight);
-  height: calc(100vh - var(--navbarHeight));
-  width: 100vw;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-}
-main#home .pageSlides {
-  height: 100%;
-  width: 100%;
-  scroll-snap-align: center;
-}
-.carousel  {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  scroll-snap-type: x mandatory;
-  overflow-x: scroll;
-}
-.carousel .carouselSlides{
-  height: 100%;
-  width: 100%;
-  flex: none;
-  scroll-snap-align: center;
-}
-
 .terminal {
-  background-color: #1d1d1d;
-  box-shadow: 0 2px 10px #3e3e3e;
-  width: 80%;
-  height: 80%;
+  border-radius: 0.5rem;
+  /* box-shadow: 0 0 5px 2px #3e3e3e; */
+  height: 80vh;
+  width: 80vw;
+  max-width: 35em;
+  max-height: 20em;
+  margin: auto;
+  margin-bottom: 20vh;
 }
 
 /* 
@@ -58,19 +33,26 @@ impossible checkbox
 */
 
 #darkLight{
-  color: white;
   z-index: 10;
-  position: fixed;
   font-size: 18px;
-  top: 0.4em;
-  right: calc(5vw + 3em);
+  position: absolute;
+  top: 0;
+  right: calc(5vw + 4rem) ;
+  height: var(--navbarHeight);
+  display: flex;
+  align-items: center;
+  transition: all 750ms ease;
 }
-
-.switch-container {
-  position: fixed;
+.switchWrapper{
+  position: absolute;
   z-index: 10;
-  top: 0.7rem;
+  top: 0;
   right: 5vw;
+  height: var(--navbarHeight);
+  display: flex;
+  align-items: center;
+}
+.switch-container {
   width: 40px;
   height: 20px;
   border-radius: 20px;
@@ -79,12 +61,9 @@ impossible checkbox
   transition: all 0.4s ease-out;
 }
 .switch-container .switch-button {
-  position: fixed;
-  z-index: 10;
-  top: calc(0.7rem + 2px);
-  right: calc(5vw + 22px);
   width: 16px;
   height: 16px;
+  margin: 2px;
   border-radius: 50%;
   background: white;
   box-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
@@ -92,8 +71,8 @@ impossible checkbox
 }
 
 .switch-container.flipped .switch-button {
+  margin-left: 22px;
   background-color: #111111;
-  right: calc(5vw + 2px);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
   transition: all 0.4s ease-out;
 
@@ -102,75 +81,37 @@ impossible checkbox
   cursor: pointer;
 }
 
-.animation-container {
-  position: fixed;
-  z-index: 15;
+.handWrapper{
+  position: absolute;
   top: 0;
   right: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  pointer-events: none;
-  overflow: hidden;
-  transition: all 0.4s ease-out;
-
+  display: flex;
+  align-items: center;
+  height: var(--navbarHeight);
 }
-
 .reach-hand-right {
-  position: fixed;
-  z-index: 15;
-  top: 0.7rem;
-  right: -5.5vw;
   height: 23px;
-  width: 5.5vw;
+  width: 0;
   background: rgb(54, 26, 9);
   border-top-left-radius: 13px;
   border-bottom-left-radius: 13px;
-  transform-origin: 200px 50%;
   transition: all 0.4s ease-out;
 }
 .reach-hand-right.reach {
-  animation: anim-arm-reach-right 1s;
-}
-.reach-hand-right.reachfar {
-  animation: anim-arm-reach-right-far 2s;
+  animation: anim-arm-reach-right 0.8s;
 }
 
 @keyframes anim-arm-reach-right {
   from {
-    right: -5.5vw;
+    width: 0;
   }
   60% {
-    right: 0;
+    width: 4vw;
   }
   80% {
-    right: 0;
+    width: 5.2vw;
   }
   100% {
-    right: -5.5vw;
-  }
-}
-@keyframes anim-arm-reach-right-far {
-  from {
-    right: -5.5vw;
-  }
-  20% {
-    right: -3vw;
-    transform: rotate(10deg);
-  }
-  40% {
-    right: -1.7vw;
-    transform: rotate(-10deg);
-  }
-  60% {
-    right: -0.8vw;
-    transform: rotate(5deg);
-  }
-  70% {
-    right: 0;
-    transform: rotate(0);
-  }
-  100% {
-    right: -5.5vw;
+    width: 0;
   }
 }

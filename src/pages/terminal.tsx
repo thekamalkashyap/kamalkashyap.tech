@@ -38,10 +38,10 @@ const Terminal: React.FC<TerminalPageProps> = ({ inputRef }) => {
   }, [history]);
 
   return (
-    <>
+    <div id="terminalTheme" className="dark">
       <main
         ref={containerRef}
-        className="min-h-[100vh] p-6 overflow-scroll text-[0.5rem] sm:text-xs lg:text-sm xl:text-base"
+        className="min-h-[100vh] w-full dark:text-gray-300 text-gray-800 dark:bg-slate-800 bg-orange-200 p-6 overflow-scroll text-xs sm:text-sm lg:text-base xl:text-lg"
         onClick={onClickAnywhere}
       >
         <History history={history} />
@@ -58,7 +58,7 @@ const Terminal: React.FC<TerminalPageProps> = ({ inputRef }) => {
           clearHistory={clearHistory}
         />
       </main>
-    </>
+    </div>
   );
 };
 

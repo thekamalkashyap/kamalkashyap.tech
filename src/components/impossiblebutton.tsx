@@ -6,9 +6,8 @@ export default function ImpossibleButton() {
     const switchContainer = document.querySelector('#switch');
     const switchButton = document.querySelector('#button');
 
-    const animationOne = () => {
+    const animation = () => {
       const arm = document.querySelector('.reach-hand-right');
-
       setTimeout(() => {
         arm.classList.add('reach');
         setTimeout(() => {
@@ -21,30 +20,7 @@ export default function ImpossibleButton() {
       }, 500);
     };
 
-    const animationTwo = () => {
-      const arm = document.querySelector('.reach-hand-right');
-      setTimeout(() => {
-        arm.classList.add('reachfar');
-        setTimeout(() => {
-          flipBack();
-          setTimeout(() => {
-            arm.classList.remove('reachfar');
-            setTimeout(setReady, 500);
-          }, 600);
-        }, 1400);
-      }, 500);
-    };
-
-    const animations = [animationOne, animationTwo];
-
-    const randomBetween = (min = 0, max = 1) => {
-      if (max - min === 0) return min;
-      return Math.round(Math.random() * (max - min)) + min;
-    };
-
     const doSwitch = () => {
-      const animation = animations[randomBetween(0, animations.length - 1)];
-
       switchContainer.classList.remove('ready');
       switchContainer.classList.add('flipped');
       animation();
@@ -71,11 +47,15 @@ export default function ImpossibleButton() {
   });
   return (
     <>
-      <div id="darkLight">dark/light</div>
-      <div id="switch" className="switch-container flipped">
-        <div id="button" className="switch-button"></div>
+      <div id="darkLight" className="text-black dark:text-white">
+        dark/light
       </div>
-      <div className="animation-container">
+      <div className="switchWrapper">
+        <div id="switch" className="switch-container flipped">
+          <div id="button" className="switch-button"></div>
+        </div>
+      </div>
+      <div className="handWrapper">
         <div className="reach-hand-right"></div>
       </div>
     </>

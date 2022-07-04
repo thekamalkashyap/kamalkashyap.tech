@@ -2,6 +2,7 @@
   "readmeUrl": "https://raw.githubusercontent.com/thekamalkashyap/thekamalkashyap/main/README.md",
   "title": "Kamal Kashyap",
   "name": "Kamal Kashyap",
+  "description":"This is my personal portfolio web app to dump my project details here.",
   "social": {
     "github": "thekamalkashyap",
     "instagram": "kashyap._.kamal"
@@ -17,9 +18,9 @@
   "navLinks": [
     {"href": "/","title":"Home"},
     {"href": "/project","title":"Portfolio"},
-    {"href": "/terminal","title":"CLI"},
+    {"href": "/terminal","title":"Terminal"},
     {"href": "/contact","title":"Contact"},
     {"href": "/snipper","title":"Snippets"},
-    {"href": "/about","title":"About"}
+    {"href": "/resume","title":"Resume"}
   ]
 }

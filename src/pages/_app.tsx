@@ -18,11 +18,10 @@ const App = ({ Component, pageProps }) => {
 
     if (!visitor) {
       visitor = window.prompt(askName);
+      if (['', undefined, null].includes(visitor)) {
+        visitor = config.ps1_username;
+      }
       window.sessionStorage.setItem('visitorName', visitor);
-    }
-
-    if (['', 'undefined', 'null'].includes(visitor)) {
-      visitor = config.ps1_username;
     }
     setVisitorName(visitor);
   }, [visitorName]);
@@ -31,14 +30,21 @@ const App = ({ Component, pageProps }) => {
     <>
       <Head>
         <title>{config.title}</title>
+        <meta name="description" content={config.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="keywords"
+          content="Javascript, AOS, React, Nextjs , Portfolio, Creative developer"
+        />
+        <meta name="author" content={config.name} />
+        <link rel="canonical" href="https://kamalkashyap.vercel.app" />
       </Head>
 
       <div>
         <Component
           {...pageProps}
-          visitorName={visitorName}
           inputRef={inputRef}
+          visitorName={visitorName}
         />
       </div>
     </>

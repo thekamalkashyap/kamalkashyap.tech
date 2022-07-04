@@ -12,11 +12,11 @@ export const help = async (args: string[]): Promise<string> => {
     if (i % 7 === 0) {
       c += Object.keys(bin).sort()[i - 1] + '\n';
     } else {
-      c += Object.keys(bin).sort()[i - 1] + ' ';
+      c += Object.keys(bin).sort()[i - 1] + ' * ';
     }
   }
   return `Welcome! Here are all the available commands:
-\n${c}\n
+\n * ${c}\n
 Type 'neofetch' to display summary.\n
 [tab]: trigger completion.
 [ctrl+l]/clear: clear terminal.
@@ -34,7 +34,7 @@ export const about = async (args: string[]): Promise<string> => {
   return `Hi, I am ${config.name}. 
 Welcome to my website!
 More about me:
-'sumfetch' - short summary.
+'neofetch' - short summary.
 'resume' - my latest resume.
 'readme' - my github readme.`;
 };
@@ -101,9 +101,6 @@ export const echo = async (args: string[]): Promise<string> => {
 
 export const whoami = async (args: string[]): Promise<string> => {
   let visitor = window.sessionStorage.getItem('visitorName');
-  if (['', 'undefined', 'null'].includes(visitor)) {
-    visitor = config.ps1_username;
-  }
   return `${visitor}`;
 };
 
@@ -114,6 +111,18 @@ fake
 directories
 and
 files`;
+};
+//  --theme--
+export const theme = async (args: string[]): Promise<string> => {
+  if (args.join('') == 'dark') {
+    document.getElementById('terminalTheme').classList.add('dark');
+    return `changing theme to dark ...`;
+  } else if (args.join('') == 'light') {
+    document.getElementById('terminalTheme').classList.remove('dark');
+    return `changing theme to light ...`;
+  } else {
+    return `avalaible options are dark and light`;
+  }
 };
 
 export const cd = async (args: string[]): Promise<string> => {
@@ -134,11 +143,11 @@ export const vim = async (args: string[]): Promise<string> => {
 };
 
 export const touch = async (args: string[]): Promise<string> => {
-  return `touch what? bro i don't have more space in my server.`;
+  return `bro i don't have more space in my server.\nif you want to help, you can type 'donate'`;
 };
 
 export const emacs = async (args?: string[]): Promise<string> => {
-  return `their is too much complications in using emacs, why don't you try codium.`;
+  return `emacs is too much complicated, why don't you try codium.`;
 };
 
 export const codium = async (args?: string[]): Promise<string> => {

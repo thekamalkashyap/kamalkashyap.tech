@@ -3,23 +3,18 @@
 }
 
 header{
-  position: fixed;
-  top: 0;
-  left: 0;
   height: var(--navbarHeight);
-  width: 100%;
   z-index: 10;
-  background-color: black;
+  display: flex;
+  align-items: center;
 }
 
 #hamBurger {
-  position: fixed;
+  margin-left: 2rem;
   z-index: 10;
-  top: 0.5em;
-  left: 1em;
   height: 30px;
   width: 36px;
-  background-color: #a9b8b323;
+  background-color: #a9b8b325;
   border-radius: 10%;
   transition: all 250ms ease-out;
 }
@@ -29,8 +24,8 @@ header{
   content: ' ';
   height: 2px;
   width: 24px;
-  position: fixed;
-  background: white;
+  position: absolute;
+  /* background: white; */
   transition: all 250ms ease-out;
 }
 #hamBurger:hover {
@@ -54,31 +49,27 @@ header{
 #hamBurger.active:after {
   transform: rotate(-45deg) translateY(-10px) translateX(-8px);
 }
-
 nav#navLinks {
   z-index: -10;
-  overflow: hidden;
-  visibility: hidden;
+  overflow-y: auto;
   opacity: 0;
   width: 100%;
+  font-size: 1rem;
   position: absolute;
   top: var(--navbarHeight);
-  min-height: calc(100% - var(--navbarHeight));
+  height: calc(100vh - var(--navbarHeight));
   padding: 0 2rem ;
-  transition: all 0.7s ease;
+  /* color: white; */
+  transition: all 0.7s ease-out;
 }
 
 nav#navLinks.active {
   z-index: 5;
-  visibility: visible;
-  font-size: 20px;
   opacity: 1;
-  overflow-y: auto;
   transition: all 0.7s ease;
 }
 nav#navLinks ul li {
   width: 0;
-  color: white;
   border-bottom: 2px solid rgb(122, 122, 122);
   transition: all 1s ease;
 }
@@ -96,26 +87,22 @@ nav#navLinks ul li a {
 }
 nav#navLinks ul li a:hover {
   opacity: 0.8;
-  transition: all 0.5s ease;
   padding: 1.5em; /* also change nav#navLinks ul li a padding */
+  transition: all 0.5s ease;
 }
 
 @media (min-width: 768px) {
   nav#navLinks {
     z-index: 10;
-    visibility: visible;
     width: 60%;
-    position: fixed;
     top: 0;
-    left: 0;
-    padding-left: 1rem;
+    left: 2rem;
     opacity: 1;
+    padding: 0;
+    height: var(--navbarHeight);
     transition: all 0.7s ease;
   }
   nav#navLinks ul {
-    position: fixed;
-    height: var(--navbarHeight);
-    width: 60%;
     display: flex;
     justify-content: space-between;
     align-items: center;
