@@ -4,8 +4,9 @@ import ImpossibleButton from '../components/impossiblebutton';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Hero from '../components/heroTyper';
+import Herotyper from '../components/heroTyper';
 import Image from 'next/image';
+import avatar from '../../public/avatar.jpg';
 
 export default function Index({ visitorName }) {
   useEffect(() => {
@@ -17,7 +18,7 @@ export default function Index({ visitorName }) {
       }, 1500);
     });
     AOS.init({ duration: 750 });
-  });
+  }, []);
 
   return (
     <div id="index" className="dark">
@@ -28,13 +29,14 @@ export default function Index({ visitorName }) {
           <section className=" h-[100vh] w-[100vw] flex flex-col sm:flex-row-reverse items-center justify-center">
             <div
               data-aos="fade-left"
-              className="relative rounded-xl shadow-sm shadow-black bg-transparent hover:grayscale h-[200px] w-[150px] sm:h-[280px] sm:w-[210px] sm:mr-10 mb-10 sm:mb-0"
+              className="relative rounded-xl shadow-sm shadow-black bg-transparent h-[200px] w-[150px] sm:h-[280px] sm:w-[210px] sm:mr-10 mb-10 sm:mb-0"
             >
               <Image
-                src="/avatar.jpg"
+                src={avatar}
                 alt="avatar"
                 layout="fill"
                 className=" rounded-xl"
+                priority
               />
             </div>
             <div className="sm:mr-10">
@@ -46,7 +48,7 @@ export default function Index({ visitorName }) {
                   hi! {visitorName},
                 </span>
                 <br />
-                <Hero />
+                <Herotyper />
                 <span className="absolute right-[-2rem] bottom-[15vh] rotate-90">
                   this way =&gt;
                 </span>
@@ -85,11 +87,12 @@ export default function Index({ visitorName }) {
               <p className="mb-10">
                 If innovation and creativity is in your list, I will definitely
                 be usefull to you. My strongest suit is the creation of creative
-                designs to reatin users and boost their experience.
+                designs to retain users as well as boost their experience at the
+                same time.
               </p>
               <p>
-                Creating unique sites is what separates me from the crowd of
-                front end Developers.
+                Creating unique, innovative and creative web app is what
+                separates me out from the crowd of front end developers.
               </p>
             </div>
             <h1
@@ -102,7 +105,7 @@ export default function Index({ visitorName }) {
               data-aos="fade"
               className=" my-12 sm:my-20 md:mb-24 dark:text-white text-black text-xl sm:text-2xl xl:text-3xl"
             >
-              From scrath
+              From scratch
             </h2>
             <p>
               I develop websites using HTML/CSS/JS, creat-react-app or next.js
@@ -113,23 +116,23 @@ export default function Index({ visitorName }) {
               data-aos="fade"
               className=" my-12 sm:my-20 md:mb-24 dark:text-white text-black text-xl sm:text-2xl xl:text-3xl"
             >
-              tech
+              Tech
             </h2>
             <p>
               I works with most loved js library out there(react).Also I&#39;m
               familiar with most of the front end libraries and framework out of
-              the box.(from bootstrap,Tailwind to barba.js)
+              the box (from bootstrap,tailwind to barba.js).
             </p>
             <h2
               data-aos="fade"
               className=" my-12 sm:my-20 md:mb-24 dark:text-white text-black text-xl sm:text-2xl xl:text-3xl"
             >
-              trends
+              Trends
             </h2>
             <p>
-              If trendy or bleeding edge is your type. Then I can make your site
-              bleeding edge with all new front end trends whether its page
-              transition or liquid scroll.
+              If trendy or bleeding edge is your type. Then I can load your web
+              app with all new front end trends whether its page transition or
+              liquid scroll.
             </p>
             <h2
               data-aos="fade"
@@ -139,21 +142,21 @@ export default function Index({ visitorName }) {
             </h2>
             <p>
               I work with individual clients, growing startups, medium
-              businesses and. everything in between
+              businesses and everything in between.
             </p>
             <div className="flex mt-20">
-              <div className="relative h-[200px] w-[150px]  mr-5">
+              <div className="relative h-[160px] w-[120px]  mr-5">
                 <Image
                   alt="avatar"
-                  src="/avatar.jpg"
+                  src={avatar}
                   layout="fill"
                   className=" rounded-lg hover:grayscale"
                 />
               </div>
-              <div className="relative h-[200px] w-[150px]">
+              <div className="relative h-[160px] w-[120px]">
                 <Image
                   alt="avatar"
-                  src="/avatar.jpg"
+                  src={avatar}
                   layout="fill"
                   className="rounded-lg grayscale hover:grayscale-0"
                 />

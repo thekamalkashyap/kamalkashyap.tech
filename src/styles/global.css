@@ -47,7 +47,7 @@ impossible checkbox
   position: absolute;
   z-index: 10;
   top: 0;
-  right: 5vw;
+  right: 10vw;
   height: var(--navbarHeight);
   display: flex;
   align-items: center;
@@ -92,6 +92,7 @@ impossible checkbox
 .reach-hand-right {
   height: 23px;
   width: 0;
+  z-index: 15;
   background: rgb(54, 26, 9);
   border-top-left-radius: 13px;
   border-bottom-left-radius: 13px;
@@ -106,10 +107,10 @@ impossible checkbox
     width: 0;
   }
   60% {
-    width: 4vw;
+    width: 6vw;
   }
   80% {
-    width: 5.2vw;
+    width: calc(10vw + 0.5em);
   }
   100% {
     width: 0;

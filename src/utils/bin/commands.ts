@@ -39,15 +39,14 @@ More about me:
 'readme' - my github readme.`;
 };
 
-// Resume
-export const resume = async (args: string[]): Promise<string> => {
-  Router.replace('/resume');
-  return 'Opening resume...';
-};
-
 export const exit = async (args: string[]): Promise<string> => {
   Router.back();
   return 'exiting ...';
+};
+
+export const gui = async (args: string[]): Promise<string> => {
+  Router.replace('/');
+  return 'opening in gui ...';
 };
 
 // Donate
@@ -172,5 +171,6 @@ export const banner = (args?: string[]): string => {
 Type 'help' to see the list of available commands.
 Type 'neofetch' to display summary.
 Type 'repo' or click <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.repo}" target="_blank">here</a></u> for the Github repository.
+Type 'gui' to open graphical interface.
 `;
 };

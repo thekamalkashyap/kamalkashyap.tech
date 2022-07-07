@@ -15,9 +15,9 @@ export default function ImpossibleButton() {
           setTimeout(() => {
             arm.classList.remove('reach');
             setTimeout(setReady, 500);
-          }, 200);
-        }, 800);
-      }, 500);
+          }, 150);
+        }, 700);
+      }, 400);
     };
 
     const doSwitch = () => {
@@ -47,9 +47,9 @@ export default function ImpossibleButton() {
   });
   return (
     <>
-      <div id="darkLight" className="text-black dark:text-white">
+      {/* <div id="darkLight" className="text-black dark:text-white">
         dark/light
-      </div>
+      </div> */}
       <div className="switchWrapper">
         <div id="switch" className="switch-container flipped">
           <div id="button" className="switch-button"></div>
