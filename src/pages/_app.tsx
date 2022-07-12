@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import '../styles/global.css';
 import '../styles/navbar.css';
 import Head from 'next/head';
 import config from '../../config.json';
+import { AnimatePresence } from 'framer-motion';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const App = ({ Component, pageProps }) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -26,6 +29,20 @@ const App = ({ Component, pageProps }) => {
     setVisitorName(visitor);
   }, [visitorName]);
 
+  useLayoutEffect(() => {
+    let html = document.querySelector('html');
+    let theme = window.sessionStorage.getItem('theme');
+    if (theme == 'dark') {
+      html.classList.add('dark');
+    } else if (theme == 'light') {
+      html.classList.remove('dark');
+    }
+  }, []);
+
+  useEffect(() => {
+    AOS.init({ duration: 750 });
+  }, []);
+
   return (
     <>
       <Head>
@@ -40,13 +57,16 @@ const App = ({ Component, pageProps }) => {
         <link rel="canonical" href="https://kamalkashyap.vercel.app" />
       </Head>
 
-      <div>
+      <AnimatePresence
+        exitBeforeEnter
+        onExitComplete={() => window.scrollTo(0, 0)}
+      >
         <Component
           {...pageProps}
           inputRef={inputRef}
           visitorName={visitorName}
         />
-      </div>
+      </AnimatePresence>
     </>
   );
 };

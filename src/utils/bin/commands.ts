@@ -113,14 +113,17 @@ files`;
 };
 //  --theme--
 export const theme = async (args: string[]): Promise<string> => {
-  if (args.join('') == 'dark') {
-    document.getElementById('terminalTheme').classList.add('dark');
+  let html = document.querySelector('html');
+  if (`${args}` == 'dark') {
+    window.sessionStorage.setItem('theme', 'dark');
+    html.classList.add('dark');
     return `changing theme to dark ...`;
-  } else if (args.join('') == 'light') {
-    document.getElementById('terminalTheme').classList.remove('dark');
-    return `changing theme to light ...`;
+  } else if (`${args}` == 'light') {
+    window.sessionStorage.setItem('theme', 'light');
+    html.classList.remove('dark');
+    return `changing theme to light ..`;
   } else {
-    return `avalaible options are dark and light`;
+    return `available options are dark and light.`;
   }
 };
 

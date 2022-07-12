@@ -29,7 +29,7 @@ export default function Typer() {
     <>
       <span
         id="heroSpan2"
-        className="dark:text-[#08fdd8] text-black font-bold text-2xl sm:text-4xl tracking-tighter mb-2"
+        className="dark:text-blue text-black font-bold text-2xl sm:text-4xl tracking-tighter mb-2"
       >
         {/* I am Kamal Kashyap */}
       </span>

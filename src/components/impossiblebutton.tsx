@@ -44,7 +44,17 @@ export default function ImpossibleButton() {
         setReady();
       }, switchAnimationTime);
     }, 1000);
-  });
+  }, []);
+
+  useEffect(() => {
+    document.getElementById('button').addEventListener('click', () => {
+      let theme = document.querySelector('html');
+      theme.classList.remove('dark');
+      setTimeout(() => {
+        theme.classList.add('dark');
+      }, 1500);
+    });
+  }, []);
   return (
     <>
       {/* <div id="darkLight" className="text-black dark:text-white">

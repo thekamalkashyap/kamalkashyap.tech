@@ -14,11 +14,5 @@
   "resume_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Resume.pdf",
   "donate_urls": {
     "bitcoin":"i will add it soon!"
-  },
-  "navLinks": [
-    {"href": "/","title":"Home"},
-    {"href": "/terminal","title":"Terminal"},
-    {"href": "/contact","title":"contact"},
-    {"href": "/rss","title":"Rss"}
-  ]
+  }
 }

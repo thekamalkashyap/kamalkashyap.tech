@@ -3,6 +3,7 @@ import { Input } from '../components/input';
 import { useHistory } from '../components/history/hook';
 import { History } from '../components/history/History';
 import { banner } from '../utils/bin';
+import { motion } from 'framer-motion';
 
 interface TerminalPageProps {
   inputRef: React.MutableRefObject<HTMLInputElement>;
@@ -38,10 +39,21 @@ const Terminal: React.FC<TerminalPageProps> = ({ inputRef }) => {
   }, [history]);
 
   return (
-    <div id="terminalTheme" className="dark">
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, x: -200, y: 0 },
+        enter: { opacity: 1, x: 0, y: 0 },
+        exit: { opacity: 0, x: 0, y: -100 },
+      }} // Pass the variant object into Framer Motion
+      initial="hidden" // Set the initial state to variants.hidden
+      animate="enter" // Animated state to variants.enter
+      exit="exit" // Exit state (used later) to variants.exit
+      transition={{ type: 'linear' }} // Set the transition to linear
+      className=""
+    >
       <main
         ref={containerRef}
-        className="min-h-[100vh] w-full dark:text-gray-300 text-gray-800 dark:bg-slate-800 bg-orange-200 p-6 overflow-scroll text-xs sm:text-sm lg:text-base xl:text-lg"
+        className="min-h-[100vh] w-full dark:bg-[#2e3440] bg-[#FED7AA] dark:text-[#00ff24] p-6 overflow-scroll text-xs sm:text-sm lg:text-base xl:text-lg"
         onClick={onClickAnywhere}
       >
         <History history={history} />
@@ -58,7 +70,7 @@ const Terminal: React.FC<TerminalPageProps> = ({ inputRef }) => {
           clearHistory={clearHistory}
         />
       </main>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,4 +1,12 @@
 @tailwind base;
+@layer base {
+  h1 {
+    @apply my-16;
+  }
+  h2 {
+    @apply my-12;
+  }
+}
 @tailwind components;
 @tailwind utilities;
 
@@ -14,7 +22,6 @@
   --navbarHeight: 3rem;
 }
 
-
 .terminal {
   border-radius: 0.5rem;
   /* box-shadow: 0 0 5px 2px #3e3e3e; */
@@ -23,7 +30,6 @@
   max-width: 35em;
   max-height: 20em;
   margin: auto;
-  margin-bottom: 20vh;
 }
 
 /* 
@@ -32,18 +38,18 @@ impossible checkbox
 ----------
 */
 
-#darkLight{
+#darkLight {
   z-index: 10;
   font-size: 18px;
   position: absolute;
   top: 0;
-  right: calc(5vw + 4rem) ;
+  right: calc(5vw + 4rem);
   height: var(--navbarHeight);
   display: flex;
   align-items: center;
   transition: all 750ms ease;
 }
-.switchWrapper{
+.switchWrapper {
   position: absolute;
   z-index: 10;
   top: 0;
@@ -75,13 +81,12 @@ impossible checkbox
   background-color: #111111;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
   transition: all 0.4s ease-out;
-
 }
 .switch-container.ready .switch-button {
   cursor: pointer;
 }
 
-.handWrapper{
+.handWrapper {
   position: absolute;
   top: 0;
   right: 0;
