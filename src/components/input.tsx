@@ -90,8 +90,8 @@ export const Input = ({
         type="text"
         className={` bg-transparent focus:outline-none flex-grow ${
           commandExists(command) || command === ''
-            ? 'text-[#00ff00]'
-            : 'text-[#ff0000]'
+            ? 'dark:text-[#00ff00] text-[#086e08]'
+            : 'dark:text-[#ff0000] text-[#7e0606]'
         }`}
         value={command}
         onChange={onChange}

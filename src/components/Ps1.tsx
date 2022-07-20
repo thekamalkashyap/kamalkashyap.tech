@@ -9,12 +9,12 @@ export const Ps1 = () => {
   }, [visitor]);
   return (
     <div>
-      <span className="text-[#310000] dark:text-red">{visitor}</span>
+      <span className="text-[#3c4f8f] dark:text-red">{visitor}</span>
       <span>@</span>
-      <span className="text-[#013101] dark:text-green">
+      <span className="text-[#238a23] dark:text-green">
         {config.ps1_hostname}
       </span>
-      <span className=" text-[#342a86] dark:text-yellow"> :$~ </span>
+      <span className=" text-[#96130e] dark:text-yellow"> :$~ </span>
     </div>
   );
 };

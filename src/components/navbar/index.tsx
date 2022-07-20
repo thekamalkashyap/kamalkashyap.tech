@@ -1,5 +1,6 @@
 import navLinks from './navLinks.json';
 import Link from 'next/link';
+import ThemeToggle from '../themeToggle';
 export default function Navbar() {
   return (
     <>
@@ -14,6 +15,7 @@ export default function Navbar() {
             e.preventDefault();
           }}
         ></button>
+        <ThemeToggle />
       </header>
       <nav
         id="navLinks"
@@ -23,7 +25,7 @@ export default function Navbar() {
         <ul>
           {navLinks.map((e) => (
             <li
-              className="md:p-2 text-lg md:text-xl  lg:text-2xl"
+              className="md:p-2 text-lg md:text-[1.1rem]  lg:text-2xl"
               key={e.href}
               onClick={(e) => {
                 document.getElementById('hamBurger').classList.remove('active');

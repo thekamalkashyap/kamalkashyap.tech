@@ -1,14 +1,20 @@
 [
   {
-    "title": "A Search Engine",
-    "description": "What if you could look up any information in the world? Webpages, images, videos and more. Google has many features to help you find exactly what you're looking for. ne being able to travel back in time or to the future. Simple turn the knob to the desired date and press 'Go'. No more worrying about lost keys or forgotten headphones with this simple yet affordab",
-    "imgSrc": "/google.webp",
-    "href": "https://www.google.com"
+    "title": "Twitter clone",
+    "description": "Twitter clone using nextjs, tailwind, typescript and sanity.io ",
+    "imgSrc": "/soon.svg",
+    "href": "https://twttr-clone.vercel.app"
   },
   {
-    "title": "The Time Machine",
-    "description": "Imagine being able to travel back in time or to the future. Simple turn the knob to the desired date and press 'Go'. No more worrying about lost keys or forgotten headphones with this simple yet affordable solution",
-    "imgSrc": "/machine.webp",
-    "href": "/blog/the-time-machine"
+    "title": "Blogging progressive web app",
+    "description": "A simple static blogging web app made with nextjs tailwind css with mdx support, offline page and dark mode toggle.",
+    "imgSrc": "/techipedia.png",
+    "href": "https://techipedia.vercel.app"
+  },
+  {
+    "title": "Personal portfolio",
+    "description": "My personal portfolio site made with nextjs, tailwindcss, AOS, framer motion and typescript.",
+    "imgSrc": "/portfolio.png",
+    "href": "/"
   }
 ]

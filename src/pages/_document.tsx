@@ -10,7 +10,7 @@ class MyDocument extends Document {
           <link rel="icon" type="image/png" sizes="192x192" href="/icon.png" />
           <meta name="theme-color" content="#000" />
         </Head>
-        <body className="bg-light dark:bg-dark dark:text-white text-black text-base sm:text-lg lg:text-xl">
+        <body className="bg-light dark:bg-dark dark:text-white text-black text-base sm:text-lg lg:text-xl  transition-all ease-out duration-700">
           <Main />
           <NextScript />
         </body>

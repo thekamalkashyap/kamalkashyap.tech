@@ -2,7 +2,8 @@ import Link from 'next/link';
 import Navbar from '../components/navbar';
 import React, { useState } from 'react';
 import axios from 'axios';
-import { motion } from 'framer-motion';
+import Layout from '../components/layout';
+
 export default function Contact() {
   const [status, setStatus] = useState({
     submitted: false,
@@ -72,19 +73,7 @@ export default function Contact() {
 
   return (
     <>
-      {/* https://formspree.io/f/mzbolvwq */}
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, x: -200, y: 0 },
-          enter: { opacity: 1, x: 0, y: 0 },
-          exit: { opacity: 0, x: 0, y: -100 },
-        }} // Pass the variant object into Framer Motion
-        initial="hidden" // Set the initial state to variants.hidden
-        animate="enter" // Animated state to variants.enter
-        exit="exit" // Exit state (used later) to variants.exit
-        transition={{ type: 'linear' }} // Set the transition to linear
-        className=""
-      >
+      <Layout>
         <Navbar />
         <main className="flex justify-center items-center flex-col relative pt-10 pb-20">
           <div>
@@ -92,11 +81,10 @@ export default function Contact() {
               onSubmit={handleOnSubmit}
               className="flex flex-col w-[50vw] max-w-4xl m-auto"
             >
-              <label htmlFor="name" data-aos="fade-down">
+              <label htmlFor="name">
                 Name: <span className="text-red">*</span>
               </label>
               <input
-                data-aos="fade-down"
                 id="name"
                 type="text"
                 name="name"
@@ -105,11 +93,10 @@ export default function Contact() {
                 required
                 value={inputs.name}
               />
-              <label htmlFor="email" data-aos="fade-right">
+              <label htmlFor="email">
                 Email: <span className="text-red">*</span>
               </label>
               <input
-                data-aos="fade-right"
                 id="email"
                 type="email"
                 name="_replyto"
@@ -118,11 +105,8 @@ export default function Contact() {
                 required
                 value={inputs.email}
               />
-              <label htmlFor="contact" data-aos="fade-left">
-                Contact:
-              </label>
+              <label htmlFor="contact">Contact:</label>
               <input
-                data-aos="fade-left"
                 id="contact"
                 type="tel"
                 name="contact"
@@ -130,11 +114,10 @@ export default function Contact() {
                 onChange={handleOnChange}
                 value={inputs.contact}
               />
-              <label htmlFor="message" data-aos="fade-up">
+              <label htmlFor="message">
                 Message: <span className="text-red">*</span>
               </label>
               <textarea
-                data-aos="fade-up"
                 id="message"
                 name="message"
                 className=" bg-transparent border rounded-lg"
@@ -144,11 +127,10 @@ export default function Contact() {
                 value={inputs.message}
               />
               <button
-                data-aos="fade"
                 id="submit"
                 type="submit"
-                className=" bg-blue rounded-lg text-black font-bold my-5 w-1/2 mx-auto"
-                disabled={status.submitting}
+                className="w-full dark:bg-blue dark:border-none border bg-transparent rounded-lg disabled:opacity-50 text-black font-bold my-5 mx-auto"
+                disabled={!inputs.email || !inputs.message || !inputs.name}
               >
                 {!status.submitting
                   ? !status.submitted
@@ -164,7 +146,7 @@ export default function Contact() {
               <p className="my-5">{status.info.msg}</p>
             )}
           </div>
-          <div className=" border-t border-blue flex w-64 pt-5 justify-between">
+          <div className=" border-t dark:border-blue flex w-64 pt-5 justify-between">
             <Link href="https://twitter.com/thekamalkashyap">
               <svg
                 aria-hidden="true"
@@ -218,7 +200,7 @@ export default function Contact() {
             </Link>
           </div>
         </main>
-      </motion.div>
+      </Layout>
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useLayoutEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/global.css';
 import '../styles/navbar.css';
 import Head from 'next/head';
@@ -6,8 +6,10 @@ import config from '../../config.json';
 import { AnimatePresence } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useRouter } from 'next/router';
 
 const App = ({ Component, pageProps }) => {
+  const router = useRouter();
   const inputRef = React.useRef<HTMLInputElement>(null);
   let [visitorName, setVisitorName] = useState('');
   useEffect(() => {
@@ -29,7 +31,7 @@ const App = ({ Component, pageProps }) => {
     setVisitorName(visitor);
   }, [visitorName]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let html = document.querySelector('html');
     let theme = window.sessionStorage.getItem('theme');
     if (theme == 'dark') {
@@ -59,11 +61,13 @@ const App = ({ Component, pageProps }) => {
 
       <AnimatePresence
         exitBeforeEnter
+        initial={false}
         onExitComplete={() => window.scrollTo(0, 0)}
       >
         <Component
           {...pageProps}
           inputRef={inputRef}
+          key={router.pathname}
           visitorName={visitorName}
         />
       </AnimatePresence>
