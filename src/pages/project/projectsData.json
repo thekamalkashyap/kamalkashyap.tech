@@ -6,6 +6,12 @@
     "href": "https://twttr-clone.vercel.app"
   },
   {
+    "title": "Link shortner",
+    "description": "Link shortner using nextjs, tailwind and typescript. ",
+    "imgSrc": "/soon.svg",
+    "href": "https://c-url.netlify.app"
+  },
+  {
     "title": "Blogging progressive web app",
     "description": "A simple static blogging web app made with nextjs tailwind css with mdx support, offline page and dark mode toggle.",
     "imgSrc": "/techipedia.png",
