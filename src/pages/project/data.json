@@ -1,0 +1,30 @@
+[
+  {
+    "header": "Chat app",
+    "image": "/gosheep.png",
+    "link": "https://gosheep.vercel.app",
+    "code": "https://github.com/thekamalkashyap/blogging-website-template",
+    "text": "RealTime chat app based on nextjs, tailwindcss and firebase"
+  },
+  {
+    "header": "Link shortner",
+    "image": "/curl.png",
+    "link": "https://c-url.vercel.app",
+    "code": "https://github.com/thekamalkashyap/linkshortner-nextjs",
+    "text": "Link shortner using nextjs, tailwind and typescript."
+  },
+  {
+    "header": "Blogging progressive web app",
+    "image": "/techipedia.png",
+    "link": "https://techipedia.vercel.app",
+    "code": "https://github.com/thekamalkashyap/blogging-website-template",
+    "text": "A simple static blogging web app made with nextjs tailwind css with mdx support, offline page and dark mode toggle."
+  },
+  {
+    "header": "Personal portfolio",
+    "image": "/portfolio.png",
+    "link": "https://kamalkashyap.vercel.app",
+    "code": "https://github.com/thekamalkashyap/kamalkashyap.vercel.app",
+    "text": "My personal portfolio site made with nextjs, tailwindcss, AOS, framer motion and typescript."
+  }
+]

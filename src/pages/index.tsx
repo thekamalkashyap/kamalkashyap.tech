@@ -4,25 +4,29 @@ import Herotyper from '../components/heroTyper';
 import Image from 'next/image';
 import avatar from '../../public/avatar.jpg';
 import Layout from '../components/layout';
+import Box from '../components/box';
+import { Canvas } from '@react-three/fiber';
+import { lazy, Suspense } from 'react';
+const Globe = lazy(() => import('../components/Globe'));
 
 export default function Index({ visitorName }) {
   return (
     <>
       <Layout>
         <Navbar />
+        <div className=" h-screen w-screen fixed top-0 -z-30 opacity-60">
+          <Canvas>
+            <ambientLight />
+            <directionalLight position={[-4, 3, 5]} />
+            <Suspense fallback={null}>
+              <Globe />
+            </Suspense>
+          </Canvas>
+        </div>
         <main>
           <section className="h-[100vh] w-[100vw] flex flex-col sm:flex-row-reverse items-center justify-center">
-            <div
-              data-aos="fade-left"
-              className="relative rounded-xl shadow-sm shadow-black h-[200px] w-[150px] sm:h-[280px] sm:w-[210px] sm:mr-10 mb-10 sm:mb-0"
-            >
-              <Image
-                src={avatar}
-                alt="avatar"
-                layout="fill"
-                className=" rounded-xl"
-                priority
-              />
+            <div data-aos="fade-left" className="h-1/3 md:h-1/2 ">
+              <Box />
             </div>
             <p className="sm:mr-10">
               <span
@@ -33,13 +37,10 @@ export default function Index({ visitorName }) {
               </span>
               <br />
               <Herotyper />
-              <span className="absolute right-[-2rem] bottom-[15vh] rotate-90">
-                this way =&gt;
-              </span>
             </p>
           </section>
           <div
-            className="terminal p-3 relative bg-black shadow-lg shadow-black"
+            className="terminal p-3 relative bg-[#202020b6] shadow-sm shadow-[#777]"
             data-aos="fade-up"
           >
             <span className="border rounded-full bg-red absolute left-[1.5rem] w-5 h-5"></span>
@@ -62,7 +63,7 @@ export default function Index({ visitorName }) {
           <section className="m-auto max-w-5xl p-12">
             <h1
               data-aos="fade-right"
-              className="dark:text-blue text-black text-2xl sm:text-3xl xl:text-4xl font-bold"
+              className="dark:text-transparent stroke text-black text-2xl sm:text-3xl xl:text-4xl font-bold"
             >
               How can i be usefull for your business?
             </h1>
@@ -78,47 +79,36 @@ export default function Index({ visitorName }) {
             </p>
             <h1
               data-aos="fade-right"
-              className="dark:text-[#08fdd8] text-black text-2xl sm:text-3xl xl:text-4xl  font-bold"
+              className="dark:text-transparent stroke text-black text-2xl sm:text-3xl xl:text-4xl  font-bold"
             >
               Why its worth working with me?
             </h1>
-            <h2
-              data-aos="fade"
-              className="dark:text-white text-black text-xl sm:text-2xl xl:text-3xl"
-            >
+            <h2 className="dark:text-white text-black text-xl sm:text-2xl xl:text-3xl">
               From scratch
             </h2>
             <p>
               I develop websites using HTML/CSS/JS, creat-react-app or next.js
               depending upon requirement or user needs.I do everything from from
-              scratch which allows me to do things my way(creative).
+              scratch which allows me to make the webapp look exactly how you
+              want it.
             </p>
-            <h2
-              data-aos="fade"
-              className=" dark:text-white text-black text-xl sm:text-2xl xl:text-3xl"
-            >
+            <h2 className=" dark:text-white text-black text-xl sm:text-2xl xl:text-3xl">
               Tech
             </h2>
             <p>
               I works with most loved js library out there(react).Also I&#39;m
-              familiar with most of the front end libraries and framework out of
-              the box (from bootstrap,tailwind to barba.js).
+              familiar with most of the front-end libraries and framework out of
+              the box (from tailwindcss, barba.js to three.js).
             </p>
-            <h2
-              data-aos="fade"
-              className="dark:text-white text-black text-xl sm:text-2xl xl:text-3xl"
-            >
+            <h2 className="dark:text-white text-black text-xl sm:text-2xl xl:text-3xl">
               Trends
             </h2>
             <p>
               If trendy or bleeding edge is your type. Then I can load your web
-              app with all new front end trends whether its page transition or
-              liquid scroll.
+              app with all new front end trends whether its page transition,
+              liquid scroll or cool looking 3d models.
             </p>
-            <h2
-              data-aos="fade"
-              className="dark:text-white text-black text-xl sm:text-2xl xl:text-3xl"
-            >
+            <h2 className="dark:text-white text-black text-xl sm:text-2xl xl:text-3xl">
               Clients
             </h2>
             <p>
@@ -131,7 +121,7 @@ export default function Index({ visitorName }) {
                   alt="avatar"
                   src={avatar}
                   layout="fill"
-                  className=" rounded-lg hover:grayscale"
+                  className="hover:grayscale"
                 />
               </div>
               <div className="relative h-[160px] w-[120px]">
@@ -139,7 +129,7 @@ export default function Index({ visitorName }) {
                   alt="avatar"
                   src={avatar}
                   layout="fill"
-                  className="rounded-lg grayscale hover:grayscale-0"
+                  className="grayscale hover:grayscale-0"
                 />
               </div>
             </section>

@@ -33,3 +33,7 @@ yarn-error.log*
 *.tsbuildinfo
 
 .gitattributes
+
+# next pwa 
+/public/sw*
+/public/workbox*

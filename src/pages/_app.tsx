@@ -31,18 +31,21 @@ const App = ({ Component, pageProps }) => {
     setVisitorName(visitor);
   }, [visitorName]);
 
-  useEffect(() => {
-    let html = document.querySelector('html');
-    let theme = window.sessionStorage.getItem('theme');
-    if (theme == 'dark') {
-      html.classList.add('dark');
-    } else if (theme == 'light') {
-      html.classList.remove('dark');
-    }
-  }, []);
+  // useEffect(() => {
+  //   let html = document.querySelector('html');
+  //   let theme = window.sessionStorage.getItem('theme');
+  //   if (theme == 'dark') {
+  //     html.classList.add('dark');
+  //   } else if (theme == 'light') {
+  //     html.classList.remove('dark');
+  //   }
+  // }, []);
 
   useEffect(() => {
     AOS.init({ duration: 750 });
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+    });
   }, []);
 
   return (

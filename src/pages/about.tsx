@@ -2,20 +2,27 @@ import Image from 'next/image';
 import avatar from '../../public/avatar.jpg';
 import Navbar from '../components/navbar';
 import Layout from '../components/layout';
+import { Canvas } from '@react-three/fiber';
+import { lazy, Suspense } from 'react';
+const Computer = lazy(() => import('../components/Computer'));
 export default function About() {
   return (
     <>
       <Layout>
         <Navbar />
+        <div className=" h-screen w-screen fixed top-0 -z-30 opacity-60">
+          <Canvas>
+            <ambientLight />
+            <directionalLight position={[-4, 3, 5]} />
+            <Suspense fallback={null}>
+              <Computer />
+            </Suspense>
+          </Canvas>
+        </div>
         <div className="px-10 sm:px-10 lg:px-16 py-10 text-lg max-w-4xl m-auto mb-10">
-          <div className="flex items-center mb-10" data-aos="fade-left">
+          <div className="flex items-end mb-10" data-aos="fade-left">
             <div className="relative h-20 w-16 mr-5">
-              <Image
-                src={avatar}
-                alt="avatar"
-                layout="fill"
-                className=" rounded-2xl"
-              />
+              <Image src={avatar} alt="avatar" layout="fill" />
             </div>
             <div>
               <h1 className="text-[#08fdd8] font-bold text-xl m-0">
