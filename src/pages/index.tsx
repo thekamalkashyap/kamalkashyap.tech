@@ -4,43 +4,55 @@ import Herotyper from '../components/heroTyper';
 import Image from 'next/image';
 import avatar from '../../public/avatar.jpg';
 import Layout from '../components/layout';
-import Box from '../components/box';
 import { Canvas } from '@react-three/fiber';
 import { lazy, Suspense } from 'react';
+import useScrollPosition from '../utils/useScrollPosition';
 const Globe = lazy(() => import('../components/Globe'));
 
 export default function Index({ visitorName }) {
+  const scrollPosition = useScrollPosition();
   return (
     <>
       <Layout>
         <Navbar />
-        <div className=" h-screen w-screen fixed top-0 -z-30 opacity-60">
+        <div className=" h-screen w-screen fixed top-0 -z-30 opacity-60 ">
           <Canvas>
             <ambientLight />
             <directionalLight position={[-4, 3, 5]} />
             <Suspense fallback={null}>
-              <Globe />
+              <Globe scrollPosition={scrollPosition} />
             </Suspense>
           </Canvas>
         </div>
         <main>
           <section className="h-[100vh] w-[100vw] flex flex-col sm:flex-row-reverse items-center justify-center">
-            <div data-aos="fade-left" className="h-1/3 md:h-1/2 ">
-              <Box />
+            <div
+              data-aos="fade-left"
+              className="relative h-[200px] w-[160px] sm:mr-10 mb-10 sm:mb-10 hover:shadow-none shadow-[5px_5px_4px_0_rgba(255,255,255,0.5)]"
+            >
+              <Image src={avatar} alt="avatar" layout="fill" priority />
             </div>
             <p className="sm:mr-10">
               <span
                 id="heroSpan1"
                 className="text-lg dark:text-white text-black sm:text-xl"
               >
-                hi! {visitorName},
+                Hello! <span className="text-4xl">{visitorName}</span>,
               </span>
               <br />
               <Herotyper />
             </p>
+            <svg
+              className={`fill-white absolute w-full bottom-[3rem]`}
+              width="24"
+              height="24"
+              viewBox="0 0 16 16"
+            >
+              <path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
+            </svg>
           </section>
           <div
-            className="terminal p-3 relative bg-[#202020b6] shadow-sm shadow-[#777]"
+            className=" h-[80vh] w-[80vw] max-h-[20em] max-w-[35em] mx-auto  p-3 relative bg-[#202020b6] shadow-[15px_15px_0_-6px_rgba(255,255,255,0.5)]"
             data-aos="fade-up"
           >
             <span className="border rounded-full bg-red absolute left-[1.5rem] w-5 h-5"></span>
@@ -60,7 +72,7 @@ export default function Index({ visitorName }) {
               </p>
             </section>
           </div>
-          <section className="m-auto max-w-5xl p-12">
+          <section className="m-auto max-w-5xl p-4 sm:p-12">
             <h1
               data-aos="fade-right"
               className="dark:text-transparent stroke text-black text-2xl sm:text-3xl xl:text-4xl font-bold"

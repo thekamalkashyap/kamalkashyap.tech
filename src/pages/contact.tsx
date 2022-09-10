@@ -47,7 +47,7 @@ export default function Contact() {
     <>
       <Layout>
         <Navbar />
-        <div className=" h-screen w-screen fixed top-0 -z-30 opacity-75 dark:opacity-60 ">
+        <div className=" h-screen w-screen fixed top-0 -z-30 opacity-60 ">
           <Canvas>
             <ambientLight />
             <directionalLight position={[-4, 3, 5]} />
@@ -56,7 +56,7 @@ export default function Contact() {
             </Suspense>
           </Canvas>
         </div>
-        <div className="flex flex-col contact justify-center">
+        <div className="flex flex-col min-h-[calc(100vh-7rem)] justify-center">
           <form
             onSubmit={sendEmail}
             className="flex flex-col w-[90vw] focus:border-none space-y-3 max-w-4xl mx-auto"
@@ -121,7 +121,7 @@ export default function Contact() {
               focusable="false"
               data-prefix="fab"
               data-icon="twitter"
-              className="w-10"
+              className="w-10 cursor-pointer"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
@@ -138,7 +138,7 @@ export default function Contact() {
               focusable="false"
               data-prefix="fab"
               data-icon="instagram"
-              className="w-10"
+              className="w-10 cursor-pointer"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 448 512"
@@ -155,7 +155,7 @@ export default function Contact() {
               focusable="false"
               data-prefix="fab"
               data-icon="github"
-              className="w-10"
+              className="w-10 cursor-pointer"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 496 512"

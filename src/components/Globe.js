@@ -10,18 +10,18 @@ import React, { memo, useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
-function Globe(props) {
+function Globe({ scrollPosition }) {
   const group = useRef();
-  useFrame(() => (group.current.rotation.y += 0.02));
+  useFrame(() => (group.current.rotation.y = scrollPosition / 332));
 
   const { nodes, materials } = useGLTF('/globe.glb');
   return (
-    <group {...props} ref={group} dispose={null}>
+    <group ref={group} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} position={[0, -2, 0]} scale={0.05}>
-        <mesh
+        {/* <mesh
           geometry={nodes.Object_2.geometry}
           material={materials.wire_135110008}
-        />
+        /> */}
         <mesh
           geometry={nodes.Object_3.geometry}
           material={materials.objects_from_Echo_of_the_Past_Cupboard}

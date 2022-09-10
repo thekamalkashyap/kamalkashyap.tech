@@ -6,16 +6,36 @@ source: https://sketchfab.com/3d-models/sci-fi-computer-terminal-e03a14fc845e4e2
 title: Sci-fi Computer Terminal
 */
 
-import React, { memo, useRef } from 'react';
+import React, { memo, useRef, useEffect } from 'react';
 import { useGLTF } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
+import * as TWEEN from '@tweenjs/tween.js';
 
 function Computer(props) {
   const group = useRef();
   const { nodes, materials } = useGLTF('/computer.glb');
-  useFrame(() => {
-    group.current.rotation.y += 0.01;
-  });
+
+  const upAndDown = new TWEEN.Tween({ y: -0.5, rot: 0 })
+    .to({ y: 0.5, rot: 1 }, 3000)
+    .easing(TWEEN.Easing.Sinusoidal.InOut)
+    .repeat(Infinity)
+    .yoyo(true);
+
+  useEffect(() => {
+    requestAnimationFrame(animate);
+    upAndDown.start();
+    upAndDown.onUpdate(({ y, rot }) => {
+      if (group.current) {
+        group.current.position.y = y;
+        group.current.rotation.y = -0.5 + rot;
+      }
+    });
+  }, []);
+
+  function animate(time) {
+    requestAnimationFrame(animate);
+    TWEEN.update(time);
+  }
+
   return (
     <group {...props} ref={group} dispose={null}>
       <group

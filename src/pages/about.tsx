@@ -10,7 +10,7 @@ export default function About() {
     <>
       <Layout>
         <Navbar />
-        <div className=" h-screen w-screen fixed top-0 -z-30 opacity-60">
+        <div className=" h-screen w-screen fixed top-0 -z-30 opacity-60 ">
           <Canvas>
             <ambientLight />
             <directionalLight position={[-4, 3, 5]} />
@@ -25,7 +25,7 @@ export default function About() {
               <Image src={avatar} alt="avatar" layout="fill" />
             </div>
             <div>
-              <h1 className="text-[#08fdd8] font-bold text-xl m-0">
+              <h1 className=" text-transparent stroke font-bold text-xl m-0">
                 Kamal Kashap
               </h1>
               <h2 className=" text-gray-600 m-0">Creative developer</h2>

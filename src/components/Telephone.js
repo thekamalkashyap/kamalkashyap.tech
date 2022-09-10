@@ -14,7 +14,7 @@ function Telephone(props) {
   const { nodes, materials } = useGLTF('/telephone.glb');
   const ref = useRef();
   useFrame(() => {
-    ref.current.rotation.y += 0.02;
+    ref.current.rotation.y += 0.01;
   });
   return (
     <group {...props} ref={ref} dispose={null}>

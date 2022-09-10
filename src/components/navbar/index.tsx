@@ -19,7 +19,7 @@ export default function Navbar() {
       </header>
       <nav
         id="navLinks"
-        className="text-black dark:text-white dark:bg-black bg-light"
+        className="text-black dark:text-white dark:bg-black md:dark:bg-transparent bg-light"
         role="navigation"
       >
         <ul>
